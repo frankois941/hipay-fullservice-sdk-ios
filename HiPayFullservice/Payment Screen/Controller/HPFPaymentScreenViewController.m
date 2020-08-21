@@ -168,6 +168,8 @@
             
             [newPaymentProducts insertObject:[[HPFPaymentProduct alloc] initWithGroupedProducts:groupedPaymentCardProductCodes] atIndex:groupedProductsToRemoveIndexes.firstIndex];
 
+            NSLog(@"PKPaymentAuthorizationViewController.canMakePayments = %d", PKPaymentAuthorizationViewController.canMakePayments);
+            NSLog(@"HPFClientConfig.sharedClientConfig isApplePayEnabled = %d", [HPFClientConfig.sharedClientConfig isApplePayEnabled]);
             if ([HPFClientConfig.sharedClientConfig isApplePayEnabled] && PKPaymentAuthorizationViewController.canMakePayments) {
 
                 HPFPaymentProduct *paymentProduct = [[HPFPaymentProduct alloc] initWithApplePayProduct];
